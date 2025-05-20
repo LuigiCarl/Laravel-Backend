@@ -37,6 +37,7 @@ class UserController extends Controller
                 'phone' => 'nullable|string|max:20',
                 'address' => 'nullable|string|max:255',
                 'role' => 'in:user,admin', // Optional, defaults to 'user'
+                'status' => 'required|in:active,blocked', // Optional, defaults to 'active'
             ]);
         } catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
@@ -87,6 +88,7 @@ class UserController extends Controller
                 'phone' => 'nullable|string|max:20',
                 'address' => 'nullable|string|max:255',
                 'role' => 'in:user,admin',
+                'status' => 'required|in:active,blocked',
             ]);
         } catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
@@ -119,30 +121,4 @@ class UserController extends Controller
 
         return response()->json(['message' => 'User deleted successfully']);
     }
-
-    /** 
-     * Authenticate and log in a user.
-     */
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        if (!Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
-        }
-
-        $user = Auth::user();
-
-        $token = $user->createToken('api-token')->plainTextToken;
-
-        return response()->json([
-            'message' => 'Login successful',
-            'token' => $token,
-            'user' => new \App\Http\Resources\UserResource($user)
-        ]);
-    }
-
 }

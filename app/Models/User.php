@@ -30,6 +30,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'role', // 'admin' or 'user'
+        'status', // 'active' or 'blocked'
     ];
 
 
