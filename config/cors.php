@@ -5,7 +5,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000'], // or your Next.js URL
+    'allowed_origins' => ['lms-laranext-1yg8.vercel.app'], // or your Next.js URL
 
     'allowed_origins_patterns' => [],
 
