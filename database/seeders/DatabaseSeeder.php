@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Book;
+use App\Models\Borrow;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
+        // Create one fixed test user
+        $user = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Create additional random users
+        $users = User::factory(5)->create();
+
+        // Create books
+        $books = Book::factory(10)->create();
+
+        // Create borrows for test user
+        foreach ($books->take(5) as $book) {
+            Borrow::factory()->create([
+                'book_id' => $book->id,
+                'borrower_id' => $user->id,
+            ]);
+        }
+
+        // Create random borrows for other users
+        foreach ($books->slice(5) as $book) {
+            Borrow::factory()->create([
+                'book_id' => $book->id,
+                'borrower_id' => $users->random()->id,
+            ]);
+        }
     }
 }
