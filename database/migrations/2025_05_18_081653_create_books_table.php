@@ -20,10 +20,9 @@ return new class extends Migration
             $table->integer('published_year');
             $table->integer('copies');
             $table->integer('available_copies');
-            $table->text('description');
-            $table->string('cover_image')->nullable();
+            $table->text('description')->nullable();
+            $table->string('cover_image')->nullable();           
             $table->timestamps();
-
         });
     }
  

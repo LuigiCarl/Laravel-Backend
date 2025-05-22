@@ -38,6 +38,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        // Trim string inputs before validation
+        $request->merge([
+            'title' => trim($request->input('title')),
+            'author' => trim($request->input('author')),
+            'isbn' => trim($request->input('isbn')),
+            'category' => trim($request->input('category')),
+            // Add more fields as needed
+        ]);
+
         try {
             $validatedData = $request->validate([
                 'title' => 'required|string|max:255',
@@ -49,10 +58,16 @@ class BookController extends Controller
                 'available_copies' => 'required|integer|min:0',
                 'description' => 'nullable|string',
                 'cover_image' => 'nullable|string',
+                
             ]);
         } catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
         }
+
+        // Require at least one image source
+        // if (!$request->hasFile('cover_image') && !$request->input('cover_image_url')) {
+        //     return response()->json(['errors' => ['cover_image' => ['Either a cover image or a cover image URL is required.']]], 422);
+        // }
 
         // Additional ISBN check is redundant here; Laravel already checks uniqueness.
         $book = Book::create($validatedData);
