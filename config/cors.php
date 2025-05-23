@@ -5,14 +5,14 @@ return [
 
     'allowed_methods' => ['*'],
 
-    // 'allowed_origins' => [
-    //     'http://localhost:3000',
-    //     'https://localhost:3000',
-    //     // Add your deployed frontend URL here, e.g.:
-    //     // 'https://your-frontend.vercel.app',
-    // ],
+    'allowed_origins' => [
+        'http://localhost:3000',
+        'https://localhost:3000',
+        // Add your deployed frontend URL here, e.g.:
+        // 'https://your-frontend.vercel.app',
+    ],
 
-    'allowed_origins' => ['https://laravel-backend-production-6537.up.railway.app'],
+    // 'allowed_origins' => ['https://laravel-backend-production-6537.up.railway.app'],
 
     'allowed_origins_patterns' => [],
 
