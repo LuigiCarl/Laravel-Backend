@@ -11,6 +11,7 @@ return [
         // Add your deployed frontend URL here, e.g.:
         // 'https://your-frontend.vercel.app',
     ],
+    'allowed_origins' => ['https://laravel-backend-production-6537.up.railway.app/books'],
 
     'allowed_origins_patterns' => [],
 
