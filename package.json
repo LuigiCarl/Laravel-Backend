@@ -1,11 +1,9 @@
 {
-  "name": "laravel-api",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
-    "postinstall": "concurrently \"npm run dev\" \"npm run build\"",
+    "dev": "vite"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
