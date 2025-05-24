@@ -8,7 +8,7 @@ return [
     'allowed_origins' => [
         'http://localhost:3000',
         'https://localhost:3000',
-        'http://https://lms-laranext-1yg8.vercel.app'
+        'http://lms-laranext-1yg8.vercel.app'
         // Add your deployed frontend URL here, e.g.:
         // 'https://your-frontend.vercel.app',
     ],
