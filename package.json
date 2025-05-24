@@ -1,6 +1,5 @@
 {
-  "name": "laravel-backend",
-  "version": "1.0.0",
+  "name": "laravel-api",
   "private": true,
   "type": "module",
   "scripts": {
