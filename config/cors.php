@@ -6,10 +6,10 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        env('http://localhost:3000',
+        'http://localhost:3000',
         'https://localhost:3000',
         'http://lms-laranext-1yg8.vercel.app/api',
-        'https://lms-laranext-1yg8.vercel.app/api')
+        'https://lms-laranext-1yg8.vercel.app/api'
         // Add your deployed frontend URL here, e.g.:
         // 'https://your-frontend.vercel.app',
     ],
