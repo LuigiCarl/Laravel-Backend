@@ -1,14 +1,15 @@
 <?php
 
 return [
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'healthz'],
 
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
         'http://localhost:3000',
         'https://localhost:3000',
-        'http://lms-laranext-1yg8.vercel.app'
+        'http://lms-laranext-1yg8.vercel.app',
+        'https://lms-laranext-1yg8.vercel.app'
         // Add your deployed frontend URL here, e.g.:
         // 'https://your-frontend.vercel.app',
     ],
