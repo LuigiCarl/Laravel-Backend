@@ -9,6 +9,6 @@ export default defineConfig({
     ]),
   ],
   preview: {
-    allowedHosts: ['laravel-backend-42.onrender.com'],
+    allowedHosts: ['laravel-backend-4.onrender.com'],
   },
 });

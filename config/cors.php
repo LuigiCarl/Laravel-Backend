@@ -18,7 +18,7 @@ return [
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['Content-Type', 'Authorization', 'Accept'],
+    'allowed_headers' => ['*'],
 
     'exposed_headers' => [],
 
